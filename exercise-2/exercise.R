@@ -27,12 +27,14 @@ unique(select(y1997.vehicles, year))
 green.two.wheels <- filter(vehicles, drive == '2-Wheel Drive', cty > 20)
 
 # Of those vehicles, what is the vehicle ID of the vehicle with the worst hwy mpg?
-select(filter(vehicles, hwy == min(hwy)), id)
+select(filter(green.two.wheels, hwy == min(hwy)), id)
 
 # Write a function that takes a `year` and a `make` as parameters, and returns 
 # The vehicle that gets the most hwy miles/gallon of vehicles of that make in that year
-
+MostEfficientHwy <- function(car.year, car.make) {
+  year.make.vehicles <- filter(vehicles, year == car.year, make == car.make)
+  return(filter(year.make.vehicles, hwy == max(hwy)))
+}
 
 # What was the most efficient honda model of 1995?
-
-
+MostEfficientHwy(1995, 'Honda')
