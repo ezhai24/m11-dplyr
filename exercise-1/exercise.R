@@ -27,11 +27,11 @@ green.two.wheel[green.two.wheel$hwy == min(green.two.wheel$hwy),]$id
 
 # Write a function that takes a `year` and a `make` as parameters, and returns 
 # The vehicle that gets the most hwy miles/gallon of vehicles of that make in that year
-MostHwyMiles <- function(make, year) {
+MostEfficientHwy <- function(make, year) {
   year.vehicles <- vehicles[vehicles$year == year,]
   year.make.vehicles <- year.vehicles[year.vehicles$make == make,]
   return(year.make.vehicles[year.make.vehicles$hwy == max(year.make.vehicles$hwy),])
 }
 
 # What was the most efficient honda model of 1995?
-MostHwyMiles('Honda', 1995)
+MostEfficientHwy('Honda', 1995)
