@@ -36,5 +36,9 @@ MostEfficientHwy <- function(car.year, car.make) {
   return(filter(year.make.vehicles, hwy == max(hwy)))
 }
 
+MostEfficientHwy <- function(car.year, car.make) {
+  return(filter(vehicles, year == car.year, make == car.make) %>% filter(hwy == max(hwy)))
+}
+
 # What was the most efficient honda model of 1995?
 MostEfficientHwy(1995, 'Honda')
